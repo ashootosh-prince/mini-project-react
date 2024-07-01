@@ -2,12 +2,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import "./SearchBox.css";
 import { useState } from 'react';
+require('dotenv').config();
 
 export default function SearchBox({ updateInfo }) {
     let [city, setCity] = useState("");
     let [error, setError] = useState(false);
-    const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-    const API_KEY = "4f4d8b8de09cc8ede29f1358f06c8318";
+    const API_URL = process.env.API_URL;
+    const API_KEY = process.env.API_KEY;
     
     let getWeatherInfo = async () => {
         try {
